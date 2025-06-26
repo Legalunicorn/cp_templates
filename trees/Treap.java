@@ -9,6 +9,7 @@ class TreapNode{
 }
 
 
+//can sub this for PBDS, its a modified treap that only accepts unique values
 class Treap{
 
     TreapNode root;

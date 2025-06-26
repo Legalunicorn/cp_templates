@@ -1,0 +1,24 @@
+string hashing 
+
+fenwick tree
+
+more seg tees 
+
+stars and bars
+
+connected components , strongly connected components 
+
+
+DSU 
+
+0-1 bfs 
+
+bellman ford
+
+
+Sparse tables (RMW)
+LCA with RMQ
+
+
+topo sort? 
+HLD

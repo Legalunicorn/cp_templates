@@ -1,4 +1,5 @@
 class Pow {
+    //binary expo 
     private long pow (long a, long b){
         long res = 1;
         while(b>0){
