@@ -1,14 +1,14 @@
 
 
-//o(1) query for idempotent properties
-public class GenericST {
+//
+public class LogQuerySparseTable {
 
     int[][] st;
     int LOG = 0;
     int n;
     int[] logPow;
 
-    public GenericST(int[] arr){
+    public LogQuerySparseTable(int[] arr){
         n = arr.length;
         logPow = new int[n];
 
@@ -25,7 +25,9 @@ public class GenericST {
             for (int i=0;i+(1<<j)-1<n;i++){
                 int a = st[i][j-1];
                 int b = st[i+(1<<(j-1))][j-1];
-                //--- generic pt
+                //-----------
+                //---note----
+                //-----------
                 st[i][j] = Math.min(a,b);
             }
             for (int i = n-(1<<j)+1;i>0 && i<n;i++){
@@ -35,13 +37,16 @@ public class GenericST {
         
     }
 
-    public int query(int l,int r){
-        int k = logPow[r-l+1];
-        int a = st[l][k];
-        int b = st[r-(1<<k)+1][k]; 
-        //--- generic pt
-        return Math.min(a,b);
-
+    public int queryLog(int l, int r){
+        int min =Integer.MAX_VALUE;
+        for (int i=LOG;i>=0;i--){
+            if ((1<<i)<+r-l+1){
+                min = Math.min(min,st[i][l]);
+                l += 1<<i;
+            }
+        }
+        return min;
     }
+
     
 }
